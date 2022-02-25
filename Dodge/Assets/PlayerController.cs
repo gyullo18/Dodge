@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     //유니티에서의 public - 유니티 에디터에서 확인 가능
     public Rigidbody playerRigidbody;
     //이동 속력 변수
-    public float speed = 2.1f;
+    public float speed = 6f;
     //내 자신을 담을 변수 - GameObject
     public GameObject my;
     // 대문자 - 데이터 형태, 소문자 - 변수
@@ -33,6 +33,15 @@ public class PlayerController : MonoBehaviour
         float zInput = Input.GetAxis("Vertical");
         // 키보드 : 'W', ↑ : +방향 : +1.0f
         // 키보드 : 's', ↓ : -방향 : -1.0f
+
+        // 실제 이동속도 = 입력값 * 이동 속력을 사용해 결정.
+        float xSpeed = xInput * speed;
+        float zSpeed = zInput * speed;
+
+        // vector3 속도를 (xSpeed, 0f, zSpeed)로 생성
+        Vector3 newVelocity = new Vector3(xSpeed, 0, zSpeed);
+        // Rigidbody의 물리적인 힘X -> 속도에 newVelocity를 할당
+        playerRigidbody.velocity = newVelocity;
     }
 
 
@@ -65,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     // 새로운 메서드 정의
     // void = 기능만 작동하는 메서드(반환값이 x)
-    void Die()
+    public void Die()
     {
         // GameObject에 접근해서 on(true)/off(false) 시키기
         my.SetActive(false);
