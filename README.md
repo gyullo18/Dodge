@@ -2,5 +2,5 @@
  Unity Project
  총알피하기
  
- ![image](https://user-images.githubusercontent.com/86696817/155938582-3bdaf84a-0697-4d56-9623-357f78878bd0.png)
+ ![image](https://user-images.githubusercontent.com/86696817/156313008-0dd38de6-970c-4737-b2e4-a6dd07fc1441.png)
 
