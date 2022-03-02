@@ -6,13 +6,13 @@ public class Rotator : MonoBehaviour
 {
     public float rotationSpeed = 60f;
     public float rotationSpeed2 = -60f;
-    // ÇÑ ÇÁ·¹ÀÓ´ç 60µµ¾¿....
+    // í•œ í”„ë ˆì„ë‹¹ 60ë„ì”©....
     void Update()
     {
-    // ´ë¹®ÀÚ - ±â´É
-    // Rotate ¸Ş¼­µå´Â ÀÔ·Â°ª(¸Å°³º¯¼ö)·Î x, y, zÃà¿¡ ´ëÇÑ È¸Àü°ªÀ» ¹Ş°í,
-    // ÇöÀç È¸Àü »óÅÂ¿¡¼­ ÀÔ·ÂµÈ °ª¸¸Å­ »ó´ëÀûÀ¸·Î ´õ È¸Àü.
-    // ÃÊ´ç 60µµ¾¿À» À§ÇØ Time.deltaTime.
+    // ëŒ€ë¬¸ì - ê¸°ëŠ¥
+    // Rotate ë©”ì„œë“œëŠ” ì…ë ¥ê°’(ë§¤ê°œë³€ìˆ˜)ë¡œ x, y, zì¶•ì— ëŒ€í•œ íšŒì „ê°’ì„ ë°›ê³ ,
+    // í˜„ì¬ íšŒì „ ìƒíƒœì—ì„œ ì…ë ¥ëœ ê°’ë§Œí¼ ìƒëŒ€ì ìœ¼ë¡œ ë” íšŒì „.
+    // ì´ˆë‹¹ 60ë„ì”©ì„ ìœ„í•´ Time.deltaTime.
      transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);  
     }   
 }

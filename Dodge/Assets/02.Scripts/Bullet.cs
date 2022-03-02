@@ -1,47 +1,47 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {   
-    // ÀÌµ¿¿¡ »ç¿ëÇÒ ¸®Áöµå¹Ùµğ ÄÄÆ÷³ÍÆ®
+    // ì´ë™ì— ì‚¬ìš©í•  ë¦¬ì§€ë“œë°”ë”” ì»´í¬ë„ŒíŠ¸
     private Rigidbody bulletRigidbody;
-    // Åº¾Ë ÀÌµ¿ ¼Ó·Â
+    // íƒ„ì•Œ ì´ë™ ì†ë ¥
     public float speed = 10f;
 
     void Start()
     {
-        // º¹Á¦ »ı¼ºÇÏ´Â ¼ø°£ ½ÇÇàµÇ±â À§ÇÔ.
-        //¸®Áöµå ¹Ùµğ ÃÊ±âÈ­ - °ÔÀÓ ¿ÀºêÁ§Æ®¿¡¼­ Rigidbody¸¦ Ã£¾Æ bulletRigidbody¿¡ ÇÒ´ç
+        // ë³µì œ ìƒì„±í•˜ëŠ” ìˆœê°„ ì‹¤í–‰ë˜ê¸° ìœ„í•¨.
+        //ë¦¬ì§€ë“œ ë°”ë”” ì´ˆê¸°í™” - ê²Œì„ ì˜¤ë¸Œì íŠ¸ì—ì„œ Rigidbodyë¥¼ ì°¾ì•„ bulletRigidbodyì— í• ë‹¹
         bulletRigidbody = GetComponent<Rigidbody>();
 
-        // ¸®Áöµå¹ÙµğÀÇ ¼Óµµ = ¾ÕÂÊ ¹æÇâ * ÀÌµ¿ ¼Ó·Â
-        // Ãà¾à¹ı - vector3(x,y,z) > ¾Õ(forward) = 0,0,1, ¿À(right), À§(up), µÚ(forward * -1) 
-        // Àü¿ªÁÂÇ¥ - À§µµ, °æµµ > Áö¿ªÁÂÇ¥ - ³» ±âÁØÀÇ À§µµ, °æµµ(0,0)
-        // transform.position : ³»°¡ ¹Ù¶óº¸´Â ¹æÇâ > Áö¿ªÁÂÇ¥
+        // ë¦¬ì§€ë“œë°”ë””ì˜ ì†ë„ = ì•ìª½ ë°©í–¥ * ì´ë™ ì†ë ¥
+        // ì¶•ì•½ë²• - vector3(x,y,z) > ì•(forward) = 0,0,1, ì˜¤(right), ìœ„(up), ë’¤(forward * -1) 
+        // ì „ì—­ì¢Œí‘œ - ìœ„ë„, ê²½ë„ > ì§€ì—­ì¢Œí‘œ - ë‚´ ê¸°ì¤€ì˜ ìœ„ë„, ê²½ë„(0,0)
+        // transform.position : ë‚´ê°€ ë°”ë¼ë³´ëŠ” ë°©í–¥ > ì§€ì—­ì¢Œí‘œ
         bulletRigidbody.velocity = transform.forward * speed;
 
-        // ÀÏÁ¤½Ã°£ ÈÄ¿¡ ÇÁ¸®Æé ÆÄ±«(ÆÄ±«½ÃÅ³ ¿ÀºêÁ§Æ® - ³» ÀÚ½Å, Áö¿¬½Ã°£) 
-        //Destroy : ¸Å°³ º¯¼ö °¹¼ö¿¡ µû¶ó ¸Ş¼­µå°¡ ´Ù¸£°Ô ½ÇÇà
+        // ì¼ì •ì‹œê°„ í›„ì— í”„ë¦¬í© íŒŒê´´(íŒŒê´´ì‹œí‚¬ ì˜¤ë¸Œì íŠ¸ - ë‚´ ìì‹ , ì§€ì—°ì‹œê°„) 
+        //Destroy : ë§¤ê°œ ë³€ìˆ˜ ê°¯ìˆ˜ì— ë”°ë¼ ë©”ì„œë“œê°€ ë‹¤ë¥´ê²Œ ì‹¤í–‰
         Destroy(gameObject, 3f);
 
     }
-    // Ãæµ¹ Ã³¸® trigger-enter
-    // ¸Ş¼­µå¸¦ ¸¸µé¾î¼­ rigidbody°¡ ½ÇÇà.
-    // rigidbody : Ãæµ¹³­ »ó´ë¹æÀÇ Á¤º¸¸¦ collider·Î º¸³»ÁÜ.
-    //Æ®¸®°Å Ãæµ¹ ½Ã ÀÚµ¿À¸·Î ½ÇÇàµÇ´Â ¸Ş¼­µå.
+    // ì¶©ëŒ ì²˜ë¦¬ trigger-enter
+    // ë©”ì„œë“œë¥¼ ë§Œë“¤ì–´ì„œ rigidbodyê°€ ì‹¤í–‰.
+    // rigidbody : ì¶©ëŒë‚œ ìƒëŒ€ë°©ì˜ ì •ë³´ë¥¼ colliderë¡œ ë³´ë‚´ì¤Œ.
+    //íŠ¸ë¦¬ê±° ì¶©ëŒ ì‹œ ìë™ìœ¼ë¡œ ì‹¤í–‰ë˜ëŠ” ë©”ì„œë“œ.
     private void OnTriggerEnter(Collider other)
     {
-        // Ãæµ¹ÇÑ »ó´ë¹æ °ÔÀÓ ¿ÀºêÁ§Æ®°¡ PlayerÅÂ±×¸¦ °¡Á³³ª?
+        // ì¶©ëŒí•œ ìƒëŒ€ë°© ê²Œì„ ì˜¤ë¸Œì íŠ¸ê°€ Playeríƒœê·¸ë¥¼ ê°€ì¡Œë‚˜?
         if(other.tag == "Player")
         {
-            // »ó´ë¹æ(Ãæµ¹ÇÑ) °ÔÀÓ ¿ÀºêÁ§Æ®¿¡¼­ PlayerController ÄÄÆ÷³ÍÆ® °¡Á®¿À±â
+            // ìƒëŒ€ë°©(ì¶©ëŒí•œ) ê²Œì„ ì˜¤ë¸Œì íŠ¸ì—ì„œ PlayerController ì»´í¬ë„ŒíŠ¸ ê°€ì ¸ì˜¤ê¸°
             PlayerController playerController = other.GetComponent<PlayerController>();
 
-            // »ó´ë¹æÀ¸·ÎºÎÅÍ PlayerControllerÄÄÆ÷³ÍÆ®¸¦ °¡Á®¿À´Âµ¥ ¼º°øÇß´Ù¸é,
+            // ìƒëŒ€ë°©ìœ¼ë¡œë¶€í„° PlayerControllerì»´í¬ë„ŒíŠ¸ë¥¼ ê°€ì ¸ì˜¤ëŠ”ë° ì„±ê³µí–ˆë‹¤ë©´,
             if (playerController != null)
             {
-                // playerController ÄÄÆ÷³ÍÆ®ÀÇ Die() ¸Ş¼­µå ½ÇÇà.
+                // playerController ì»´í¬ë„ŒíŠ¸ì˜ Die() ë©”ì„œë“œ ì‹¤í–‰.
                 playerController.Die();
             };
         }

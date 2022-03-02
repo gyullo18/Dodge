@@ -1019,7 +1019,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Press R to Restart
+  m_Text: Press SPACE to Restart
 --- !u!222 &1569361674
 CanvasRenderer:
   m_ObjectHideFlags: 0
